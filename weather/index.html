@@ -4,16 +4,18 @@
   <meta charset="UTF-8">
   <title>Redirecting...</title>
   <script>
-    // Get the current path after /weather/
     const currentPath = window.location.pathname;
     const basePath = "/weather/";
     const targetPath = currentPath.startsWith(basePath) ? currentPath.slice(basePath.length) : "";
-    
-    // Construct the Globus URL
-    const targetURL = "https://g-2d6e2f.7ce1a.03c0.data.globus.org/" + targetPath;
 
-    // Redirect
-    window.location.replace(targetURL);
+    // Only redirect if a subpath is present
+    if (targetPath) {
+      const targetURL = "https://g-2d6e2f.7ce1a.03c0.data.globus.org/" + targetPath;
+      window.location.replace(targetURL);
+    } else {
+      // Optional: fallback if user visits /weather/ directly
+      document.write("<p>Please specify a file to redirect to (e.g., /weather/file.csv)</p>");
+    }
   </script>
 </head>
 <body>
