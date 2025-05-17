@@ -1,9 +1,22 @@
 <!DOCTYPE html>
 <html>
-  <head>
-   <meta http-equiv="refresh" content="0; url=https://g-2d6e2f.7ce1a.03c0.data.globus.org/" />
-  </head>
-  <body>
-    <p>Redirecting to Globus...</p>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <title>Redirecting...</title>
+  <script>
+    // Get the current path after /weather/
+    const currentPath = window.location.pathname;
+    const basePath = "/weather/";
+    const targetPath = currentPath.startsWith(basePath) ? currentPath.slice(basePath.length) : "";
+    
+    // Construct the Globus URL
+    const targetURL = "https://g-2d6e2f.7ce1a.03c0.data.globus.org/" + targetPath;
+
+    // Redirect
+    window.location.replace(targetURL);
+  </script>
+</head>
+<body>
+  <p>Redirecting to Globus file...</p>
+</body>
 </html>
